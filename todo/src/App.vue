@@ -16,6 +16,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "App"
+};
+</script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -25,8 +31,13 @@
   color: #2c3e50;
 }
 
+.logo {
+  height: 64px;
+  margin-top: 24px;
+}
+
 #nav {
-  padding: 30px;
+  padding: 24px;
 
   a {
     background: #41b883;
@@ -49,7 +60,68 @@
   }
 }
 
-.logo {
-  height: 60px;
+.container {
+  margin: 0 auto 24px;
+  width: 620px;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+input[type="text"] {
+  border: 1px solid #999;
+  font-size: 16px;
+  margin: 0 0 8px;
+  padding: 8px 16px;
+  width: 586px;
+
+  &:focus {
+    border-color: #41b883;
+    outline: none;
+  }
+}
+
+.btn-primary {
+  background: #41b883;
+  border: 0;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 8px 24px;
+  text-transform: uppercase;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn-remove,
+.btn-update {
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  height: 32px;
+  text-align: center;
+  width: 32px;
+}
+
+.btn-remove {
+  background: red;
+}
+
+.btn-update {
+  background: green;
 }
 </style>
