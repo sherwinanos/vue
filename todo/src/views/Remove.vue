@@ -7,7 +7,7 @@
         class="todo-item"
         v-for="(todo, index) in todos"
         :key="todo.id"
-        :class="{completed : todo.completed}"
+        :class="{ completed: todo.completed }"
       >
         <div class="todo-item--text">
           <div>
@@ -20,7 +20,7 @@
         </div>
 
         <div class="todo-item--status">
-          <div class="status" :class="{completed : todo.completed}">
+          <div class="status" :class="{ completed: todo.completed }">
             <span class="is-done">Done</span>
             <span class="is-pending">Pending</span>
           </div>
@@ -46,36 +46,35 @@ export default {
           id: 1,
           title: "One",
           description: "This is false",
-          completed: false
+          completed: false,
         },
         {
           id: 2,
           title: "Two",
           description: "This is true",
-          completed: true
+          completed: true,
         },
         {
           id: 3,
           title: "Three",
           description: "This is false",
-          completed: false
+          completed: false,
         },
         {
           id: 4,
           title: "Four",
           description: "This is true",
-          completed: true
-        }
-      ]
+          completed: true,
+        },
+      ],
     };
   },
   methods: {
     removeTodo(index) {
       this.todos.splice(index, 1);
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>
