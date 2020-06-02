@@ -33,8 +33,8 @@ export default {
     }
   },
   methods: {
-    updatedTodo(id) {
-      this.$store.dispatch("updatedTodo", id);
+    updateTodo(id) {
+      this.$store.dispatch("updateTodo", id);
     }
   }
 };
