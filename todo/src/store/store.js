@@ -8,25 +8,25 @@ export const store = new Vuex.Store({
     todos: [
       {
         id: 1,
-        title: "PUBG",
+        title: "1. PUBG",
         description: "The description status is false",
         completed: false,
       },
       {
         id: 2,
-        title: "Mobile Legends",
+        title: "2. Mobile Legends",
         description: "The description status  is true",
         completed: true,
       },
       {
         id: 3,
-        title: "DOTA 2",
+        title: "3. DOTA 2",
         description: "The description status  is false",
         completed: false,
       },
       {
         id: 4,
-        title: "AOV",
+        title: "4. AOV",
         description: "The description status  is true",
         completed: true,
       },
@@ -45,10 +45,12 @@ export const store = new Vuex.Store({
       const index = state.todos.findIndex((item) => item.id == id);
       state.todos.splice(index, 1);
     },
-    updateTodo(state, id) {
-      const index = state.todos.findIndex((item) => item.id == id);
+    updateTodo(state, todo) {
+      const index = state.todos.findIndex((item) => item.id == todo.id);
       state.todos.splice(index, 1, {
-        completed: true,
+        id: todo.id,
+        title: todo.title,
+        completed: todo.completed,
       });
     },
   },
@@ -63,9 +65,9 @@ export const store = new Vuex.Store({
         context.commit("deleteTodo", id);
       }, 100);
     },
-    updateTodo(context, id) {
+    updateTodo(context, todo) {
       setTimeout(() => {
-        context.commit("deleteTodo", id);
+        context.commit("updateTodo", todo);
       }, 100);
     },
   },
