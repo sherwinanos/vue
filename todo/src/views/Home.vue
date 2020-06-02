@@ -3,7 +3,12 @@
     <h1>Todo Items</h1>
     <!-- Todo Lists -->
     <div class="container">
-      <div class="todo-item" v-for="todo in todoDone" :key="todo.id" :todo="todo" :index="index">
+      <div
+        class="todo-item"
+        v-for="todo in todos"
+        :key="todo.id"
+        :class="{completed : todo.completed}"
+      >
         <div class="todo-item--text">
           <div>
             <h2>{{ todo.title }}</h2>
@@ -18,49 +23,9 @@
 <script>
 export default {
   name: "Home",
-  components: {},
-  data() {
-    return {
-      heading: "Todo Items",
-      newTodoTitle: "",
-      newTodoDesc: "",
-      idForTodo: 3,
-      todos: [
-        {
-          id: 1,
-          title: "One",
-          description: "This is false",
-          completed: false
-        },
-        {
-          id: 2,
-          title: "Two",
-          description: "This is true",
-          completed: true
-        },
-        {
-          id: 3,
-          title: "Three",
-          description: "This is false",
-          completed: false
-        },
-        {
-          id: 4,
-          title: "Four",
-          description: "This is true",
-          completed: true
-        }
-      ]
-    };
-  },
   computed: {
-    todoDone() {
-      return this.todos.filter(todo => todo.completed);
-    }
-  },
-  methods: {
-    removeTodo(index) {
-      this.todos.splice(index, 1);
+    todos() {
+      return this.$store.getters.doneTodos;
     }
   }
 };
@@ -80,7 +45,7 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   margin: 0 0 16px;
-  padding: 16px 0;
+  padding: 16px 8px;
 
   .todo-item--text {
     align-items: center;

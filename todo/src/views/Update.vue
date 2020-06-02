@@ -3,11 +3,8 @@
     <h1>Update Items</h1>
     <!-- Todo Lists -->
     <div class="container">
-      <div class="todo-item" v-for="todo in todoPending" :key="todo.id">
+      <div class="todo-item" v-for="todo in todos" :key="todo.id">
         <div class="todo-item--text">
-          <div>
-            <input type="checkbox" v-model="completed" />
-          </div>
           <div>
             <h2>{{ todo.title }}</h2>
             <p>{{ todo.description }}</p>
@@ -20,7 +17,7 @@
             <span class="is-pending">Pending</span>
           </div>
           <div class="buttons">
-            <div class="btn-update">&check;</div>
+            <div class="btn-update" @click="updateTodo(todo.id)">&check;</div>
           </div>
         </div>
       </div>
@@ -30,57 +27,16 @@
 
 <script>
 export default {
-  name: "Add",
-  props: {
-    todo: {
-      type: Object,
-      required: true
-    },
-    index: {
-      type: Number,
-      required: true
-    }
-  },
-  data() {
-    return {
-      heading: "Todo Items",
-      newTodoTitle: "",
-      newTodoDesc: "",
-      idForTodo: 3,
-      todos: [
-        {
-          id: 1,
-          title: "One",
-          description: "This is false",
-          completed: false
-        },
-        {
-          id: 2,
-          title: "Two",
-          description: "This is true",
-          completed: true
-        },
-        {
-          id: 3,
-          title: "Three",
-          description: "This is false",
-          completed: false
-        },
-        {
-          id: 4,
-          title: "Four",
-          description: "This is true",
-          completed: true
-        }
-      ]
-    };
-  },
   computed: {
-    todoPending() {
-      return this.todos.filter(todo => !todo.completed);
+    todos() {
+      return this.$store.getters.pendingTodos;
     }
   },
-  methods: {}
+  methods: {
+    updatedTodo(id) {
+      this.$store.dispatch("updatedTodo", id);
+    }
+  }
 };
 </script>
 
