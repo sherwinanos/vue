@@ -17,7 +17,7 @@
             <span class="is-pending">Pending</span>
           </div>
           <div class="buttons">
-            <div class="btn-update" @click="doneEdit">&check;</div>
+            <div class="btn-update" @click="doneEdit(todo.id)">&check;</div>
           </div>
         </div>
       </div>
@@ -33,13 +33,8 @@ export default {
     }
   },
   methods: {
-    doneEdit() {
-      this.$store.dispatch("updateTodo", {
-        id: this.id,
-        title: this.title,
-        description: this.description,
-        completed: this.completed
-      });
+    doneEdit(id) {
+      this.$store.dispatch("updateTodo", id);
     }
   }
 };

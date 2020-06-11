@@ -8,26 +8,26 @@ export const store = new Vuex.Store({
     todos: [
       {
         id: 1,
-        title: "1. PUBG",
-        description: "The description status is false",
+        title: "John Lennon",
+        description: "Hey Jude, don't make it bad",
         completed: false,
       },
       {
         id: 2,
-        title: "2. Mobile Legends",
-        description: "The description status  is true",
+        title: "Paul McCartney",
+        description: "When I find myself in times of trouble",
         completed: true,
       },
       {
         id: 3,
-        title: "3. DOTA 2",
-        description: "The description status  is false",
-        completed: false,
+        title: "George Harrison",
+        description: "It's been a hard day's night",
+        completed: true,
       },
       {
         id: 4,
-        title: "4. AOV",
-        description: "The description status  is true",
+        title: "Ringgo Starr",
+        description: "We all live in a yellow submarine",
         completed: true,
       },
     ],
@@ -45,13 +45,9 @@ export const store = new Vuex.Store({
       const index = state.todos.findIndex((item) => item.id == id);
       state.todos.splice(index, 1);
     },
-    updateTodo(state, todo) {
-      const index = state.todos.findIndex((item) => item.id == todo.id);
-      state.todos.splice(index, 1, {
-        id: todo.id,
-        title: todo.title,
-        completed: todo.completed,
-      });
+    updateTodo(state, id) {
+      const index = state.todos.findIndex((item) => item.id == id);
+      state.todos[index].completed = true;
     },
   },
   actions: {
@@ -65,9 +61,9 @@ export const store = new Vuex.Store({
         context.commit("deleteTodo", id);
       }, 100);
     },
-    updateTodo(context, todo) {
+    updateTodo(context, id) {
       setTimeout(() => {
-        context.commit("updateTodo", todo);
+        context.commit("updateTodo", id);
       }, 100);
     },
   },
