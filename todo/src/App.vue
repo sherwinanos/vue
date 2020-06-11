@@ -23,6 +23,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css");
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -37,7 +39,7 @@ export default {
 }
 
 #nav {
-  padding: 24px;
+  padding: 24px 24px 0;
 
   a {
     background: #41b883;
@@ -65,18 +67,24 @@ export default {
   width: 620px;
 }
 
+h1 {
+  font-size: 20px;
+}
+
 h2 {
+  font-size: 16px;
   margin: 0;
   padding: 0;
 }
 
 p {
+  font-size: 12px;
   margin: 0;
 }
 
 input[type="text"] {
   border: 1px solid #999;
-  font-size: 16px;
+  font-size: 12px;
   margin: 0 0 8px;
   padding: 8px 16px;
   width: 586px;

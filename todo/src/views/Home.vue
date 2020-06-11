@@ -40,7 +40,9 @@ export default {
 
 .todo-item {
   align-items: center;
+  animation-duration: 0.3s;
   background: #f9f9f9;
+  border: 1px solid #dedede;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

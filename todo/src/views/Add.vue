@@ -8,19 +8,25 @@
     </div>
 
     <div class="container">
-      <div
-        class="todo-item"
-        v-for="todo in todos"
-        :key="todo.id"
-        :class="{completed : todo.completed}"
+      <transition-group
+        name="fade"
+        enter-active-class="animated fadeInUp"
+        leave-active-class="animated fadeOutDown"
       >
-        <div class="todo-item--text">
-          <div>
-            <h2>{{ todo.title }}</h2>
-            <p>{{ todo.description }}</p>
+        <div
+          class="todo-item"
+          v-for="todo in todos"
+          :key="todo.id"
+          :class="{completed : todo.completed}"
+        >
+          <div class="todo-item--text">
+            <div>
+              <h2>{{ todo.title }}</h2>
+              <p>{{ todo.description }}</p>
+            </div>
           </div>
         </div>
-      </div>
+      </transition-group>
     </div>
   </div>
 </template>
